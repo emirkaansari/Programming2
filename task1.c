@@ -7,7 +7,7 @@ void removeVowels(char oldString[]);
 int check_vowel(char t);
 int main(void)
 {
-	char oldString[] = "Calculus is really hard";
+	char oldString[] = "Good morning to you!";
 	removeVowels(oldString);
 	return 0;
 }
@@ -25,6 +25,16 @@ void removeVowels(char oldString[])
 			newString[j] = oldString[i];
 			j++;
 		}
+		else if(check_vowel(oldString[i]) == 2)
+		{
+			newString[j] = 'n';
+			j++;
+		}
+		else if(check_vowel(oldString[i]) == 3)
+		{
+			newString[j] = 'm';
+			j++;
+		}
     }
   newString[j] = '\0';
   printf("String before deleting vowels: %s\n", oldString);
@@ -36,8 +46,12 @@ void removeVowels(char oldString[])
 }
 int check_vowel(char t)
 {
-  if (t == 'a' || t == 'A' || t == 'e' || t == 'E' || t == 'i' || t == 'I' || t =='o' || t=='O' || t == 'u' || t == 'U')
+  if (t == 'a' || t == 'A' || t == 'e' || t == 'E' || t =='o' || t=='O' || t == 'u' || t == 'U')
     return 1;
+  else if (t == 'm' || t == 'M') 
+	return 2;
+  else if (t == 'n' || t == 'N')
+	return 3;
 
   return 0;
 }
